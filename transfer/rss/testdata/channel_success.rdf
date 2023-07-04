@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <channel rdf:about="https://example.com/rss">
+    <title>test title</title>
+    <link>https://example.com/link</link>
+    <description>test description</description>
+  </channel>
+</rdf:RDF>

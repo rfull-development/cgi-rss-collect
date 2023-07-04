@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dc="namespace"
+>
+  <item>
+    <title>test title</title>
+    <link>https://example.com/link</link>
+    <dc:creator>test creator</dc:creator>
+    <dc:date>YYYY/MM/DD</dc:date>
+  </item>
+</rdf:RDF>
