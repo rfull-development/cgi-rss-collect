@@ -5,7 +5,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"os"
+	"log"
+	"net/http"
+	"net/http/cgi"
 
 	"github.com/ngv-jp/cgi-rss-collect/collect"
 	"github.com/ngv-jp/cgi-rss-collect/transfer/rss"
@@ -30,15 +32,30 @@ func JsonFromRdf(url string) (string, error) {
 	return body, nil
 }
 
-func main() {
-	if len(os.Args) != 2 {
-		fmt.Println("Usage: main <url>")
-		os.Exit(1)
+func RootHandler(writer http.ResponseWriter, request *http.Request) {
+	fmt.Println("RootHandler")
+	defer request.Body.Close()
+	query := request.URL.Query()
+	url := query.Get("url")
+	fmt.Println(url)
+	if url == "" {
+		writer.WriteHeader(http.StatusBadRequest)
+		return
 	}
-	url := os.Args[1]
-	body, e := JsonFromRdf(url)
+	j, e := JsonFromRdf(url)
 	if e != nil {
-		panic(e)
+		log.Println(e)
+		writer.WriteHeader(http.StatusInternalServerError)
+		return
 	}
-	fmt.Println(body)
+	body := []byte(j)
+	writer.Header().Set("Content-Type", "application/json")
+	writer.WriteHeader(http.StatusOK)
+	writer.Write(body)
+}
+
+func main() {
+	fmt.Println("start")
+	handler := http.HandlerFunc(RootHandler)
+	cgi.Serve(handler)
 }
