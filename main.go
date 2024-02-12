@@ -9,8 +9,8 @@ import (
 	"net/http"
 	"net/http/cgi"
 
-	"github.com/ngv-jp/cgi-rss-collect/collect"
-	"github.com/ngv-jp/cgi-rss-collect/transfer/rss"
+	"github.com/rfull-development/cgi-rss-collect/collect"
+	"github.com/rfull-development/cgi-rss-collect/transfer/rss"
 )
 
 func JsonFromRdf(url string) (string, error) {

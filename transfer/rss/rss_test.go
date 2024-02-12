@@ -9,8 +9,8 @@ import (
 	"path"
 	"testing"
 
-	"github.com/ngv-jp/cgi-rss-collect/transfer"
-	"github.com/ngv-jp/cgi-rss-collect/transfer/rss"
+	"github.com/rfull-development/cgi-rss-collect/transfer"
+	"github.com/rfull-development/cgi-rss-collect/transfer/rss"
 )
 
 func Rdf(name string) []byte {
