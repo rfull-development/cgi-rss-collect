@@ -5,7 +5,7 @@ package rss
 import (
 	"encoding/xml"
 
-	"github.com/ngv-jp/cgi-rss-collect/transfer"
+	"github.com/rfull-development/cgi-rss-collect/transfer"
 )
 
 // Rss is a instance of Rss.
